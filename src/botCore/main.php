@@ -57,7 +57,7 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
         continue;
     }
 
-    if(array_key_exists("new_chat_member", $entity)){
+    if(array_key_exists("new_chat_member", $entity['message'])){
         continue;
     }
 

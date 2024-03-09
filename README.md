@@ -2,7 +2,7 @@
 
 v2.0
 
-PHP telegram bot for dick measuring compitition
+PHP telegram bot for dick measuring competition
 
 Grow or shirk up to 10cm no less than every 24 hours, manually, with command /piska
 
@@ -12,7 +12,7 @@ Grow or shirk up to 10cm no less than every 24 hours, manually, with command /pi
 php src/botCore/main.php
 ```
 
-## Requerments
+## Requirements
 1. php8.0
 2. composer
 3. mysql8

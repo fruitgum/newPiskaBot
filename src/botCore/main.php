@@ -8,6 +8,7 @@ include 'src/myLibs/lottery.php';
 include 'src/myLibs/history.php';
 include 'src/botCore/usage.php';
 include 'src/botCore/greeting.php';
+include 'src/botCore/leaders.php';
 
 $getUpdates=getUpdates();
 $getUpdatesResult=$getUpdates['result'];
@@ -132,6 +133,9 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
             case "/help":
 
                 usage();
+                break;
+            case "/leaders":
+                getLeaders($chat['id'], $message['id'], $message['inChat_id']);
                 break;
             default:
                 logger("Unknown command from message ".$message['id'], "WARN");

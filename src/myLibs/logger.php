@@ -18,7 +18,7 @@ function logger($log_message, $log_level_logger)
             $space=" ";
         }
 
-        $date = date("H:i:s  d-m-Y");
+        $date = date("d-m-Y H:i:s");
         echo "$date ".'['.$log_level_logger.']'." $space$log_message\n";
     }
 

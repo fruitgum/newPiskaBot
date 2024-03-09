@@ -4,7 +4,7 @@ include "src/stuff/auth.php";
 include 'src/stuff/db.php';
 include 'src/tglibs/getUpdates.php';
 include 'src/tglibs/sendMessage.php';
-include 'src/myLibs/lottery.php';
+include 'src/botCore/lottery.php';
 include 'src/myLibs/history.php';
 include 'src/botCore/usage.php';
 include 'src/botCore/greeting.php';

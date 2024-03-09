@@ -1,0 +1,24 @@
+{
+    "name": "fruitgum/piska-bot-2.0",
+    "description": "Telegram bot",
+    "type": "project",
+    "require": {
+        "ext-curl": "^8.0",
+        "ext-mysqli": "^8.0",
+        "ext-json": "^8.0",
+        "ext-pcntl": "^8.0"
+    },
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "Fruitgum\\PiskaBot20\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "emma",
+            "email": "me@fruitgum.space"
+        }
+    ],
+    "minimum-stability": "beta"
+}

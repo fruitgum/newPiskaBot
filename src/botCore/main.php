@@ -101,7 +101,8 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
 //        ) ON DUPLICATE KEY UPDATE date=now()
 //        ");
 
-        $mysqli->query("INSERT INTO history(chat_id, user_id, message_id, chat_message_id, proceeded, date) values(
+        try {
+            $mysqli->query("INSERT INTO history(chat_id, user_id, message_id, chat_message_id, proceeded, date) values(
                            '" . $chat['id'] . "',
                            '" . $user['id'] . "',
                            '" . $update_id . "',
@@ -111,6 +112,10 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
 
         ) ON DUPLICATE KEY UPDATE date=now()
         ");
+        }catch (mysqli_sql_exception $e){
+            logger("$e", "WARN");
+            continue;
+        }
 
 
         $newUser=isNewUser($user['id'],$user['username'], $user['first_name'], $chat['id'], $chat['title']);

@@ -57,6 +57,10 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
         continue;
     }
 
+    if(array_key_exists("new_chat_member", $entity)){
+        continue;
+    }
+
     $message=array(
         'id' => $update_id,
         'date' => $entity['message']['date'],
@@ -110,8 +114,8 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
                            'false',
                            now()
 
-        ) ON DUPLICATE KEY UPDATE date=now()
-        ");
+            ) ON DUPLICATE KEY UPDATE date=now()
+            ");
         }catch (mysqli_sql_exception $e){
             logger("$e", "WARN");
             continue;

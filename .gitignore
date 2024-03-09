@@ -1,4 +1,3 @@
 /vendor/
 /.idea/
-/src/auth.php
 /composer.lock

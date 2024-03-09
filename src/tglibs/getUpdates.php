@@ -9,7 +9,14 @@ function getUpdates(): array{
         $getOffset=$mysqli->query("select max(message_id) from history");
         $offset=$getOffset->fetch_row();
     }
+
     $botToken=$bot_con_data['token'];
+
+    if ($botToken==''){
+        logger("No token provided. Please define it with PISKA_BOT_TOKEN os env", "FATAL");
+        exit();
+    }
+
     logger("Starting with offset ".$offset[0]+1, "DEBUG");
     $apiUrl = 'https://api.telegram.org/bot' . $botToken . '/getUpdates?offset='.$offset[0]+1;
 

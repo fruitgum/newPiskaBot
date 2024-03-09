@@ -1,6 +1,6 @@
 <?php
 
-function getLeaders($chat_id, $message_chat_id, $message_id)
+function getLeaders($chat_id, $message_chat_id, $message_id): void
 {
     global $mysqli;
     $leaderBoard='';

@@ -1,4 +1,4 @@
-CREATE DATABASE `newPiska` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */
+CREATE DATABASE `newPiska` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 CREATE TABLE `history` (
   `chat_id` int DEFAULT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `history` (
   `proceeded` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`,`message_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 CREATE TABLE `piska` (
@@ -18,4 +18,4 @@ CREATE TABLE `piska` (
   `username` varchar(255) DEFAULT NULL,
   `size` int DEFAULT NULL,
   `last_run` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;

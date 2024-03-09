@@ -1,7 +1,7 @@
 <?php
 
 include 'src/stuff/params.php';
-function logger($log_message, $log_level_logger)
+function logger($log_message, $log_level_logger): void
 {
 
     global $log_levels;

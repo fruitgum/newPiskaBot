@@ -104,14 +104,6 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
     }
     else{
         logger("Got new message from ".$user['username']." with text ".$message['text'], "INFO");
-//        $mysqli->query("INSERT INTO history(user_id, message_id, proceeded, date) values(
-//                           '" . $user['id'] . "',
-//                           '" . $update_id . "',
-//                           'false',
-//                           now()
-//
-//        ) ON DUPLICATE KEY UPDATE date=now()
-//        ");
 
         try {
             $mysqli->query("INSERT INTO history(chat_id, user_id, message_id, chat_message_id, proceeded, date) values(

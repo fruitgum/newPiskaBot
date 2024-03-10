@@ -4,7 +4,7 @@ function getLeaders($chat_id, $message_chat_id, $message_id): void
 {
     global $mysqli;
     $leaderBoard='';
-    $getLeaders=$mysqli->query("select username, size from piska where last_run>date_add(now(), interval -1 month)");
+    $getLeaders=$mysqli->query("select username, size from piska where last_run>date_add(now(), interval -1 month) order by size desc");
     $leadersRows=$getLeaders->num_rows;
     $l=0;
     while($leaders=$getLeaders->fetch_assoc()){

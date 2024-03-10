@@ -1,8 +1,11 @@
 <?php
 
 use JetBrains\PhpStorm\NoReturn;
-
 include 'src/stuff/dictionary.php';
+
+/**
+ * @throws \Random\RandomException
+ */
 
 /**
  * @throws Exception
@@ -27,10 +30,11 @@ function checkLastRun($user_id): string{
     }
 }
 
+
 function doRandom(): int{
-    $random=rand(-10, 10);
+    $random=random_int(-10, 10);
     if($random==0){
-            $random=rand(-10, 10); // another chance
+        $random=random_int(-10, 10); // another chance
     }
     return $random;
 }

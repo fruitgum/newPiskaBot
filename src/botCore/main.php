@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 include 'src/stuff/params.php';
 include 'src/myLibs/logger.php';
 include "src/stuff/auth.php";

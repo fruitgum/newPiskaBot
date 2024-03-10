@@ -35,7 +35,7 @@ function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): string{
                       date_add(now(), interval -1 DAY)
               )");
         }catch (mysqli_sql_exception $e){
-            logger("$e", "WARN");
+            logger("$e", "FATAL");
             return "err";
         }
     }else{
@@ -117,7 +117,7 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
             ) ON DUPLICATE KEY UPDATE date=now()
             ");
         }catch (mysqli_sql_exception $e){
-            logger("$e", "WARN");
+            logger("$e", "FATAL");
             continue;
         }
 

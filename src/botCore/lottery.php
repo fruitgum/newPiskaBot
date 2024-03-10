@@ -28,7 +28,11 @@ function checkLastRun($user_id): string{
 }
 
 function doRandom(): int{
-    return rand(-10, 10);
+    $random=rand(-10, 10);
+    if($random==0){
+            $random=rand(-10, 10); // another chance
+    }
+    return $random;
 }
 
 function doLottery(): int{

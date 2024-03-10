@@ -1,6 +1,6 @@
 <?php
 
-include 'src/stuff/params.php';
+
 function logger($log_message, $log_level_logger): void
 {
 

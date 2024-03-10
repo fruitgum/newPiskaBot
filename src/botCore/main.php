@@ -1,4 +1,5 @@
 <?php
+include 'src/stuff/params.php';
 include 'src/myLibs/logger.php';
 include "src/stuff/auth.php";
 include 'src/stuff/db.php';
@@ -10,12 +11,13 @@ include 'src/botCore/usage.php';
 include 'src/botCore/greeting.php';
 include 'src/botCore/leaders.php';
 
+
 $getUpdates=getUpdates();
 $getUpdatesResult=$getUpdates['result'];
 
 function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): string{
     global $mysqli;
-
+    global $botName;
 
     $newUserCheckQuery=$mysqli->query("select count(*) as count from piska where user_id='".$user_id."'");
     $result=$newUserCheckQuery->fetch_row();
@@ -135,7 +137,18 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
 
         $request=explode("@", $message['text']);
         $command=$request[0];
-
+        if(count($request)>1) {
+            $at = $request[1];
+            if ($at != $botName) {
+                logger("Skipped command ".$message['text'], "INFO");
+                $mysqli->query("update history set proceeded='true' where message_id='".$update_id."'");
+                continue;
+            }
+        }else{
+            logger("Skipped command ".$message['text'], "INFO");
+            $mysqli->query("update history set proceeded='true' where message_id='".$update_id."'");
+            continue;
+        }
         switch ($command){
             case "/start":
 

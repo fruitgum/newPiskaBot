@@ -3,12 +3,12 @@
 function getUpdates(): array{
     global $bot_con_data;
     global $mysqli;
-    $getOffset=$mysqli->query("select ifnull(min(message_id), 0) as message_id from history where proceeded='false'");
-    $offset=$getOffset->fetch_row();
-    if($offset[0]=="0"){
+//    $getOffset=$mysqli->query("select ifnull(min(message_id), 0) as message_id from history where proceeded='false'");
+//    $offset=$getOffset->fetch_row();
+//    if($offset[0]=="0"){
         $getOffset=$mysqli->query("select max(message_id) from history");
         $offset=$getOffset->fetch_row();
-    }
+//    }
 
     $botToken=$bot_con_data['token'];
 

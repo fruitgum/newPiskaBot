@@ -15,7 +15,7 @@ function checkLastRun($user_id): string{
     $now=new DateTime();
     $now->modify("-24 hours");
     $diff=$lastRun->diff($now, true);
-    $diff->invert=1;
+    $diff->invert=0;
     $countdown=$diff->h." hour(s), ".$diff->i." minute(s) and ".$diff->s." seconds";
     $lastRun=$lastRun->format("Y-m-d H:i:s");
     $now=$now->format("Y-m-d H:i:s");

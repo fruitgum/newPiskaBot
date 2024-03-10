@@ -32,7 +32,7 @@ function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): string{
                       '" . $user_name . "',
                       '" . $user . "',
                       '0',
-                      date_add(now(), interval -1 DAY)
+                      date_add(now(), interval -30 DAY)
               )");
         }catch (mysqli_sql_exception $e){
             logger("$e", "FATAL");

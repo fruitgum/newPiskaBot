@@ -4,10 +4,6 @@ use JetBrains\PhpStorm\NoReturn;
 include 'src/stuff/dictionary.php';
 
 /**
- * @throws \Random\RandomException
- */
-
-/**
  * @throws Exception
  */
 function checkLastRun($user_id): string{
@@ -30,11 +26,15 @@ function checkLastRun($user_id): string{
     }
 }
 
-
-function doRandom(): int{
-    $random=random_int(-10, 10);
-    if($random==0){
-        $random=random_int(-10, 10); // another chance
+function doRandom($currentSize): int{
+    if($currentSize==0){
+        $random=random_int(1, 10);
+    }else{
+        $random=random_int(-10, 10);
+        $dt=0;
+        if($random==0){
+            $random=random_int(-10, 10); // another chance
+        }
     }
     return $random;
 }
@@ -74,7 +74,7 @@ function doLottery(): int{
     $currentSizeQuery=$mysqli->query("SELECT size from piska where user_id='".$user['id']."'");
     $row=$currentSizeQuery->fetch_row();
     $currentSize=$row[0];
-    $adjustSize=doRandom();
+    $adjustSize=doRandom($currentSize);
     $newSize=$currentSize+$adjustSize;
 
     if($newSize<0) {

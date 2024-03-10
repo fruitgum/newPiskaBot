@@ -16,13 +16,6 @@ function getLeaders($chat_id, $message_chat_id, $message_id): void
             $add = "🍆🍆";
         }elseif ($l==2){
             $add="🍆";
-        }elseif ($leadersRows-$l==2){
-            $add="🍑";
-        }elseif ($leadersRows-$l==1){
-            $add="🍑🍑";
-        }
-        elseif ($leadersRows-$l==0){
-            $add="🍑";
         }else{
             $add="";
         }

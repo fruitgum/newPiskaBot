@@ -10,12 +10,15 @@ function checkLastRun($user_id): string{
     global $mysqli;
     $lastRunQuery=$mysqli->query("select last_run from piska where user_id='".$user_id."'");
     $row=$lastRunQuery->fetch_row();
-    $lastRun = new DateTime($row[0]);
+    $lastRun = new DateTimeImmutable($row[0]);
+    $lastRunMod = new DateTime($row[0]);
+
     $now=new DateTime();
-    $lastRun->modify("+24 hours");
-    $diff=$lastRun->diff($now, true);
+    $lastRunMod->modify("+24 hours");
+    $diff=$lastRunMod->diff($now, true);
     $diff->invert=0;
     $countdown=$diff->h." hour(s), ".$diff->i." minute(s) and ".$diff->s." seconds";
+
     $lastRun=$lastRun->format("Y-m-d H:i:s");
     $now=$now->format("Y-m-d H:i:s");
     $diff=strtotime($now)-strtotime($lastRun);

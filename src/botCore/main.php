@@ -37,13 +37,13 @@ function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): string{
               )");
         }catch (mysqli_sql_exception $e){
             logger("$e", "FATAL");
-            return "err";
+            return false;
         }
     }else{
         $msg="User: ".$user." ".$user_id." already exist";
         logger("$msg", "DEBUG");
     }
-    return 'nul';
+    return true;
 }
 
 if(count($getUpdatesResult)==0){
@@ -124,7 +124,7 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
 
 
         $newUser=isNewUser($user['id'],$user['username'], $user['first_name'], $chat['id'], $chat['title']);
-        if($newUser=='err'){
+        if($newUser==false){
             continue;
         }
 

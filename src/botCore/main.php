@@ -18,7 +18,6 @@ $getUpdatesResult=$getUpdates['result'];
 
 function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): bool{
     global $mysqli;
-    global $botName;
 
     $newUserCheckQuery=$mysqli->query("select count(*) as count from piska where user_id='".$user_id."'");
     $result=$newUserCheckQuery->fetch_row();
@@ -124,7 +123,7 @@ for ($m = 0; $m < count($getUpdatesResult); $m++) {
 
 
         $newUser=isNewUser($user['id'],$user['username'], $user['first_name'], $chat['id'], $chat['title']);
-        if($newUser==false){
+        if(!$newUser){
             continue;
         }
 

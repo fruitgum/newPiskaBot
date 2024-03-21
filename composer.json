@@ -3,7 +3,7 @@
     "description": "Telegram bot",
     "type": "project",
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "ext-curl": "^8.0",
         "ext-mysqli": "^8.0",
         "ext-json": "^8.0",

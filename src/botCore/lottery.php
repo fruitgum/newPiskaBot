@@ -1,6 +1,8 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
+
+use Random\RandomException;
+
 include 'src/stuff/dictionary.php';
 
 /**
@@ -29,12 +31,14 @@ function checkLastRun($user_id): string{
     }
 }
 
+/**
+ * @throws RandomException
+ */
 function doRandom($currentSize): int{
     if($currentSize==0){
         $random=random_int(1, 10);
     }else{
         $random=random_int(-10, 10);
-        $dt=0;
         if($random==0){
             $random=random_int(-10, 10); // another chance
         }

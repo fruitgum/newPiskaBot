@@ -16,7 +16,7 @@ include 'src/botCore/leaders.php';
 $getUpdates=getUpdates();
 $getUpdatesResult=$getUpdates['result'];
 
-function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): string{
+function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): bool{
     global $mysqli;
     global $botName;
 

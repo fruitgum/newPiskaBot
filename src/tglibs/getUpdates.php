@@ -29,7 +29,8 @@ function getUpdates(): array{
     $response = curl_exec($getUpdates);
 
     if(curl_errno($getUpdates)){
-        echo "\n".'Curl error: ' . curl_error($getUpdates);
+        #echo "\n".'Curl error: ' . curl_error($getUpdates);
+        logger('Curl error: ' . curl_error($getUpdates), "FATAL");
     }
 
     curl_close($getUpdates);

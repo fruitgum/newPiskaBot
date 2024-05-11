@@ -25,6 +25,7 @@ function getUpdates(): array{
     curl_setopt($getUpdates, CURLOPT_URL, $apiUrl);
     curl_setopt($getUpdates, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($getUpdates, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($getUpdates, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 
     $response = curl_exec($getUpdates);
 

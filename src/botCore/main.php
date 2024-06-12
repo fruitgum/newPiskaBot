@@ -14,11 +14,12 @@ include 'src/botCore/leaders.php';
 
 
 $getUpdates=getUpdates();
-$getUpdatesResult=$getUpdates['result'];
-
 if(count($getUpdates)=='0'){
     exit();
 }
+$getUpdatesResult=$getUpdates['result'];
+
+
 
 function isNewUser($user_id, $user, $user_name, $chat_id, $chat_title): bool{
     global $mysqli;

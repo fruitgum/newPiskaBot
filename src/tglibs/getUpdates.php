@@ -25,17 +25,17 @@ function getUpdates(): array{
     curl_setopt($getUpdates, CURLOPT_URL, $apiUrl);
     curl_setopt($getUpdates, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($getUpdates, CURLOPT_CONNECTTIMEOUT, 60);
-#   curl_setopt($getUpdates, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 
     $response = curl_exec($getUpdates);
 
     if(curl_errno($getUpdates)){
-        #echo "\n".'Curl error: ' . curl_error($getUpdates);
         logger('Curl error: ' . curl_error($getUpdates), "FATAL");
+        exit();
     }
 
     curl_close($getUpdates);
-    if(gettype($response)=='array'){
+
+    if(gettype($response)==='array'){
         return json_decode($response, true);
     }else{
         return [];

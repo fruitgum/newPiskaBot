@@ -14,6 +14,7 @@ include 'src/botCore/leaders.php';
 
 
 $getUpdates=getUpdates();
+logger("New messages: ".count($getUpdates), "DEBUG");
 if(count($getUpdates)=='0'){
     exit();
 }

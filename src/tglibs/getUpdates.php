@@ -25,6 +25,9 @@ function getUpdates(): array{
     curl_setopt($getUpdates, CURLOPT_URL, $apiUrl);
     curl_setopt($getUpdates, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($getUpdates, CURLOPT_CONNECTTIMEOUT, 60);
+#    curl_setopt($getUpdates, CURLOPT_VERBOSE, true);
+    curl_setopt($getUpdates, CURLOPT_CONNECTTIMEOUT, 60); // 60 seconds to connect
+    curl_setopt($getUpdates, CURLOPT_TIMEOUT, 120); // 120 seconds to execute
 
     $response = curl_exec($getUpdates);
 
@@ -36,8 +39,10 @@ function getUpdates(): array{
     curl_close($getUpdates);
 
     if(gettype($response)==='array'){
+	logger("Got new messages", "DEBUG");
         return json_decode($response, true);
     }else{
+	logger("No new messages", "DEBUG");
         return [];
     }
 

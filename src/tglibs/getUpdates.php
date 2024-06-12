@@ -38,12 +38,9 @@ function getUpdates(): array{
 
     curl_close($getUpdates);
 
-    if(gettype($response)==='array'){
-	logger("Got new messages", "DEBUG");
-        return json_decode($response, true);
-    }else{
-	logger("No new messages", "DEBUG");
-        return [];
-    }
+
+    logger("Got new messages", "DEBUG");
+    return json_decode($response, true);
+
 
 }
